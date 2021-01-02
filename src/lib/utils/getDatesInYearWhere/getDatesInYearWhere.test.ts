@@ -4,9 +4,25 @@
  **/
 import getDatesInYearWhere from './getDatesInYearWhere'
 
-describe('getDaysInYear() function', () => {
+describe('getDaysInYearWhere() function', () => {
     it ('should return 2 dates for Friday 13 in the year 2020', () => {
         const dates = getDatesInYearWhere('2020', { day: 13, weekDay: 'friday'})
+        const first = new Date('March 13, 2020')
+        const second = new Date('November 13, 2020')
+
         expect(dates.length).toBe(2)
+        expect(dates[0]).toStrictEqual(first)
+        expect(dates[1]).toStrictEqual(second)
+    })
+    it ('should return 3 dates for Friday 13 in the year 2015', () => {
+        const dates = getDatesInYearWhere('2015', { day: 13, weekDay: 'friday'})
+        const first = new Date('February 13, 2015')
+        const second = new Date('March 13, 2015')
+        const third = new Date('November 13, 2015')
+
+        expect(dates.length).toBe(3)
+        expect(dates[0]).toStrictEqual(first)
+        expect(dates[1]).toStrictEqual(second)
+        expect(dates[2]).toStrictEqual(third)
     })
 })

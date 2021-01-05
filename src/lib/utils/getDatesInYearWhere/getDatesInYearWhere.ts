@@ -17,7 +17,7 @@ export default function getDatesInYearWhere(year: string, criteria: IDateCriteri
     for (let month = FIRST_MONTH; month <= LAST_MONTH; month++) {
         const date = new Date(desiredYearNum, month, desiredDayNum)
 
-        if (date.getDay() === desiredWeekDayIndex) {
+        if (date.getDay() === desiredWeekDayIndex && date.getDate() === desiredDayNum) {
             result.push(date)
         }
     }

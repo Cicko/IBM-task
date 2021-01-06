@@ -3,7 +3,7 @@ import { Form, InputNumber, Button, Select} from 'antd';
 import getDatesInYearWhere from '../lib/utils/getDatesInYearWhere/getDatesInYearWhere'
 import { IDatesInYearResponse, WeekDay } from '../@types/types'
 import CalendarGroup from '../lib/components/CalendarGroup/CalendarGroup';
-import { CURRENT_YEAR } from '../config/config';
+import { CURRENT_YEAR, locale, weekDays } from '../config/config';
 import { validateDay, validateWeekDay } from '../lib/validators';
 
 const { Option } = Select
@@ -48,6 +48,7 @@ const DaysFinder: React.FC<DaysFinderProps> = (props: DaysFinderProps) => {
     const renderForm = () => (
       <Form
       {...layout}
+      data-testid="form"
       name="basic"
       form={form}
       initialValues={{ year: CURRENT_YEAR, day, weekDay }}
@@ -65,7 +66,7 @@ const DaysFinder: React.FC<DaysFinderProps> = (props: DaysFinderProps) => {
         name="weekDay"
         >
         <Select disabled>
-            <Option value="friday">Friday</Option>
+            {weekDays.map(v => <Option key={v} value={v}>{v}</Option>)}
         </Select>
         </Form.Item>
       <Form.Item
@@ -86,7 +87,7 @@ const DaysFinder: React.FC<DaysFinderProps> = (props: DaysFinderProps) => {
 
   const renderCalendars = () => (
     <div className="calendars-container">
-      <CalendarGroup dates={dates} locale="en-EN"/>
+      <CalendarGroup dates={dates} locale={locale}/>
     </div>
   )
 

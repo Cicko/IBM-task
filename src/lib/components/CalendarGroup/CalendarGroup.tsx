@@ -16,7 +16,7 @@ const CalendarGroup: React.FC<CalendarGroupProps> = (props) => {
     const { dates, locale } = props
 
     const renderMonth = (date: Date) => (
-        <Calendar className="calendar" value={date} key={date.toDateString()} locale={locale}/>
+        <Calendar className="calendar" value={date} key={date.toDateString()} locale={locale} />
     )
 
     if (dates.length === 0) {

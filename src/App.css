@@ -3,3 +3,13 @@
 .App {
   padding: 20px;
 }
+
+.calendar-group {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.calendar {
+  margin: 20px;
+}

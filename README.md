@@ -1,12 +1,18 @@
-# Getting Started with Create React App
+## Days Finder (configured for friday 13)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Requirements
+ - Node v14
+ - 
+
+### Logic requirements
+ - Min year supported is 100 because of Date object nature (year 99 is transformed into 1999)
+ - Max year is 275760 
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

@@ -10,6 +10,7 @@ export type WeekDay =
 export interface IDateCriteria {
   day: number
   weekDay: WeekDay
+  year: number
 }
 
 export type IDatesInYearResponse = Array<Date>

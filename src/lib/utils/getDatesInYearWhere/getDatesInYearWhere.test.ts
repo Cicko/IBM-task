@@ -6,7 +6,7 @@ import getDatesInYearWhere from './getDatesInYearWhere'
 
 describe('getDaysInYearWhere() function', () => {
     it ('should return 2 dates for Friday 13 in the year 2020', () => {
-        const dates = getDatesInYearWhere('2020', { day: 13, weekDay: 'friday'})
+        const dates = getDatesInYearWhere({ day: 13, weekDay: 'friday', year: 2020 })
         const first = new Date('March 13, 2020')
         const second = new Date('November 13, 2020')
 
@@ -15,7 +15,7 @@ describe('getDaysInYearWhere() function', () => {
         expect(dates[1]).toStrictEqual(second)
     })
     it ('should return 3 dates for Friday 13 in the year 2015', () => {
-        const dates = getDatesInYearWhere('2015', { day: 13, weekDay: 'friday'})
+        const dates = getDatesInYearWhere({ day: 13, weekDay: 'friday', year: 2015 })
         const first = new Date('February 13, 2015')
         const second = new Date('March 13, 2015')
         const third = new Date('November 13, 2015')

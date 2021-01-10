@@ -1,3 +1,13 @@
+## Days Finder (configured for friday 13)
+
+### Requirements
+ - Node v14
+ - 
+
+### Logic requirements
+ - Min year supported is 100 because of Date object nature (year 99 is transformed into 1999)
+ - Max year is 275760 
+
 ## Available Scripts
 
 In the project directory, you can run:

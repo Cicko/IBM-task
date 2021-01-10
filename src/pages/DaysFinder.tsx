@@ -74,11 +74,11 @@ const DaysFinder: React.FC<DaysFinderProps> = (props: DaysFinderProps) => {
         name="year"
         rules={[{ required: true, message: 'Please input the year!'}]}
       >
-        <InputNumber min={100}/>
+        <InputNumber min={100} max={275760}/>
       </Form.Item>
 
       <Form.Item {...tailLayout}>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" data-testid="submit">
           Calculate
         </Button>
       </Form.Item>

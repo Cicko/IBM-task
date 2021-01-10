@@ -1,4 +1,3 @@
-import {Form } from 'antd'
 import { FormInstance } from 'antd/lib/form'
 
 const validateDay = (value: number, form: FormInstance) => {

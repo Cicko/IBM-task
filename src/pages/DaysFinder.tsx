@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { Form, InputNumber, Button, Select} from 'antd';
 import getDatesInYearWhere from '../lib/utils/getDatesInYearWhere/getDatesInYearWhere'
-import { IDatesInYearResponse, WeekDay } from '../@types/types'
+import { IDateCriteria, IDatesInYearResponse, WeekDay } from '../@types/types'
 import CalendarGroup from '../lib/components/CalendarGroup/CalendarGroup';
-import { CURRENT_YEAR, locale, weekDays } from '../config/config';
+import { CURRENT_YEAR, dayUpdateable, locale, weekDays, weekDayUpdateable } from '../config/config';
 import { validateDay, validateWeekDay } from '../lib/validators';
 
 const { Option } = Select
@@ -27,18 +27,18 @@ const DaysFinder: React.FC<DaysFinderProps> = (props: DaysFinderProps) => {
     const [dates, setDates] = React.useState<IDatesInYearResponse>([])
     const [form] = Form.useForm();
 
-    const updateDates = (year: string) => {
-        const days = getDatesInYearWhere(year, { day, weekDay })
+    const updateDates = (values: IDateCriteria) => {
+        const days = getDatesInYearWhere(values)
         setDates(days)
     }
 
-    const onFinish = (values: { year: string }) => {
+    const onFinish = (values: IDateCriteria) => {
         form.validateFields(['day', 'weekDay']).then(values => {
           const { day, weekDay } = values
           validateDay(day, form)
           validateWeekDay(weekDay, form)
         })
-        updateDates(values.year)
+        updateDates(values)
       };
     
     const onFinishFailed = (errorInfo: any) => {
@@ -59,13 +59,13 @@ const DaysFinder: React.FC<DaysFinderProps> = (props: DaysFinderProps) => {
         label="Day"
         name="day"
       >
-        <InputNumber disabled/>
+        <InputNumber disabled={!dayUpdateable}/>
       </Form.Item>
       <Form.Item
         label="Week day"
         name="weekDay"
         >
-        <Select disabled>
+        <Select disabled={!weekDayUpdateable}>
             {weekDays.map(v => <Option key={v} value={v}>{v}</Option>)}
         </Select>
         </Form.Item>

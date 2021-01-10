@@ -15,3 +15,6 @@ export const weekDays = [
     'saturday',
     'sunday'
 ]
+
+export const dayUpdateable = true
+export const weekDayUpdateable = true
